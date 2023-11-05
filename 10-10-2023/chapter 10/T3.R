@@ -1,16 +1,18 @@
 library(shiny)
 
 ui <- fluidPage(
-  sidebarPanel(
-    selectInput("show", "Show", choices = paste0("panel", 1:3))
-  ),
-  mainPanel(
-    tabsetPanel(
-      id = "panel",
-      type = "hidden",
-      tabPanel("panel1", "Panel 1 content"),
-      tabPanel("panel2", "Panel 2 content"),
-      tabPanel("panel3", "Panel 3 content"),
+  sidebarLayout(
+    sidebarPanel(
+      selectInput("show", "Show", choices = paste0("panel", 1:3))
+    ),
+    mainPanel(
+      tabsetPanel(
+        id = "panel",
+        type = "hidden",
+        tabPanel("panel1", "Panel 1 content"),
+        tabPanel("panel2", "Panel 2 content"),
+        tabPanel("panel3", "Panel 3 content"),
+      )
     )
   )
 )
