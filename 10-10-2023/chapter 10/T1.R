@@ -1,0 +1,18 @@
+library(shiny)
+
+ui <- fluidPage(
+  numericInput("min", "Minimum", 0),
+  numericInput("max", "Maximum", 3),
+  sliderInput("n", "n", 0, 3, 1),
+)
+
+server <- function(input, output, session) {
+  observeEvent(input$min, {
+    updateSliderInput(inputId = "n", min = input$min)
+  })
+  observeEvent(input$max, {
+    updateSliderInput(inputId = "n", max = input$max)
+  })
+}
+
+shinyApp(ui, server)
