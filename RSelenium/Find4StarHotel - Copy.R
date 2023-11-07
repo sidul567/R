@@ -17,7 +17,7 @@ driver <- client_server$client
 driver$maxWindowSize()
 driver$navigate("https://google.com")
 
-searchText <- "5 star hotel in gulshan"
+searchText <- "4 star hotel in gulshan"
 
 driver$findElement("css selector", "textarea[type = 'search']")$sendKeysToElement(list(searchText, key = 'enter'))
 
@@ -76,7 +76,7 @@ print(red(isFindHotel))
 
 if(isFindHotel){
   prices_df <- as.data.frame(do.call(cbind, prices))
-  prices_df <- cbind(city="gulshan", type="5 star", prices_df)
+  prices_df <- cbind(city="gulshan", type="4 star", prices_df)
   prices_df <- apply(prices_df, c(1,2), as.character)
   write.csv(prices_df, file = paste0(searchText,".csv"), row.names = FALSE)
   View(prices_df)
